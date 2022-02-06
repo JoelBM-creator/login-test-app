@@ -1,0 +1,122 @@
+.container-fluid {
+  padding-top: 5%;
+}
+
+.login-card {
+  background-color: white;
+  min-height: 58%;
+  width: 42vh;
+  animation: fadein 1s ease-in-out;
+}
+
+.login-content {
+  animation: fadein 1.5s ease-in-out;
+  min-height: 58%;
+  height: 58vh;
+}
+
+.login-header {
+  font-weight: 500;
+}
+
+:host ::ng-deep .mat-form-field {
+  min-width: 30vh;
+}
+
+:host ::ng-deep .mat-form-field-prefix {
+  margin-right: 1em;
+}
+
+.remember-me {
+  font-weight: 500;
+  margin-right: 12em;
+}
+
+:host ::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-bar,
+:host ::ng-deep .mat-slide-toggle.mat-checked .mat-ripple-element {
+  background-color: #3f51b5;
+}
+
+.objectfit {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  margin: 10px;
+  position: relative;
+}
+
+.objectfit > img {
+  height: 200px;
+  object-fit: cover;
+}
+
+:host ::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: #4c61d4;
+}
+
+:host ::ng-deep .mat-stroked-button {
+  border-radius: 2em;
+  border-color: #3f51b5;
+  width: 50%;
+  align-self: center;
+}
+
+@media only screen and (max-width: 980px) and (min-width: 621px) {
+  .container-fluid {
+    flex-direction: row !important;
+  }
+  .login-content {
+    height: auto;
+  }
+  .remember-me {
+    margin-right: 15em;
+  }
+  :host ::ng-deep .mat-stroked-button {
+    margin-bottom: 2em;
+  }
+}
+
+@media only screen and (max-width: 620px) and (min-width: 501px) {
+  .container-fluid {
+    flex-direction: row !important;
+  }
+  .login-content {
+    height: auto;
+  }
+  .remember-me {
+    margin-right: 8em;
+  }
+  :host ::ng-deep .mat-stroked-button {
+    margin-bottom: 2em;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-width: 341px) {
+  .container-fluid {
+    flex-direction: row !important;
+  }
+  .login-content {
+    height: auto;
+  }
+  .remember-me {
+    margin-right: 8.5em;
+  }
+  :host ::ng-deep .mat-stroked-button {
+    margin-bottom: 2em;
+  }
+}
+
+@media only screen and (max-width: 340px) and (min-width: 5px) {
+  .container-fluid {
+    flex-direction: row !important;
+  }
+  .login-content {
+    height: auto;
+  }
+  .remember-me {
+    margin-right: 8em;
+  }
+  :host ::ng-deep .mat-stroked-button {
+    margin-bottom: 2em;
+  }
+}

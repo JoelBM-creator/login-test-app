@@ -1,0 +1,62 @@
+<div
+  class="container-fluid mt-5"
+  fxLayout
+  fxLayout.xs="column"
+  fxLayoutGap="0"
+  fxLayoutGap.xs="0"
+  fxLayoutAlign="center"
+>
+  <div class="login-card mat-elevation-z8 mb-5">
+    <main class="login-content" fxLayout="column" fxLayoutAlign="center center">
+      <div class="objectfit">
+        <img class="crop" src="/assets/img/logo.jpg" alt="gatito" />
+      </div>
+      <h3 class="login-header mb-5 mt-3">Prueba técnica</h3>
+      <form
+        [formGroup]="loginForm"
+        class="login-form align-items-center"
+        fxLayout="column"
+        (ngSubmit)="login($event)"
+      >
+        <mat-form-field appearance="standard">
+          <mat-label>Email</mat-label>
+          <mat-icon matPrefix>account_circle</mat-icon>
+          <input matInput formControlName="email" type="email" />
+          <mat-error
+            *ngIf="
+              loginForm.controls.email.hasError('email') &&
+              !loginForm.controls.email.hasError('required')
+            "
+          >
+            Introduzca una dirección de correo electrónico válida.
+          </mat-error>
+          <mat-error *ngIf="loginForm.controls.email.hasError('required')"
+            >El email es <strong>requerido!</strong></mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Contraseña</mat-label>
+          <mat-icon matPrefix>security</mat-icon>
+          <input matInput formControlName="contrasena" type="password" />
+          <mat-error
+            *ngIf="
+              loginForm.controls.contrasena.hasError('minlength') &&
+              !loginForm.controls.contrasena.hasError('required')
+            "
+          >
+            La contraseña debe de tener de 5 caracteres minimo.
+          </mat-error>
+          <mat-error *ngIf="loginForm.controls.contrasena.hasError('required')"
+            >La contraseña es <strong>requerida!</strong></mat-error
+          >
+        </mat-form-field>
+        <mat-form-field floatLabel="always" appearance="none">
+          <span class="remember-me">Recordar</span>
+          <mat-slide-toggle formControlName="rememberMe"></mat-slide-toggle>
+          <textarea matInput hidden></textarea>
+        </mat-form-field>
+        <button mat-stroked-button color="primary">Acceder</button>
+      </form>
+    </main>
+  </div>
+</div>

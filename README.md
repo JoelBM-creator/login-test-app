@@ -1,27 +1,35 @@
-# TestApp
+# Login App - Responsive and Testing.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
+## Especificaciones de versión Angular.
 
-## Development server
+![Versión angular: ](./src/assets/github/AngularCli.PNG)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Login Page.
 
-## Code scaffolding
+![Página frontal a través del componente login: ](./src/assets/github/LoginPage.PNG)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Alertas de error en el formulario.
 
-## Build
+![Enviar datos sin información: ](./src/assets/github/ClickAccederWithoutInfo.PNG)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+![Datos del email invalido: ](./src/assets/github/ErrorValidEmail.PNG)
 
-## Running unit tests
+![Contraseña no cumple requisito de 5 caracteres: ](./src/assets/github/Min5Characters.PNG)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Responsive Movil y iPad.
 
-## Running end-to-end tests
+![iPhone SE: ](./src/assets/github/ResponsiveHandy.PNG)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+![iPhone Samsung Galaxy S8+: ](./src/assets/github/ResponsiveHandy2.PNG)
 
-## Further help
+![iPad: ](./src/assets/github/ResponsiveIpad.PNG)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Test y Coverage
+
+![Terminal OK Test: ](./src/assets/github/TerminalTest.PNG)
+
+![Test en Karma: ](./src/assets/github/Tests.PNG)
+
+![Coverage: ](./src/assets/github/Coverage.PNG)
+
+# Joel B.
