@@ -1,9 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
-import { MaterialModule } from './material/material.module';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -12,7 +16,11 @@ describe('AppComponent', () => {
         RouterTestingModule,
         ReactiveFormsModule,
         FormsModule,
-        MaterialModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSlideToggleModule,
+        MatIconModule
       ],
       declarations: [AppComponent, LoginFormComponent],
     }).compileComponents();
