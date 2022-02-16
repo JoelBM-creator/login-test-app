@@ -18,7 +18,14 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.constForm();
-    document.body.classList.add('bg-img');
+  }
+
+  login(event: Event): any {
+    event.preventDefault();
+    if (this.loginForm.valid) {
+      const value = this.loginForm.value;
+      console.log(`OK ${value.email} - ${value.rememberMe}`);
+    }
   }
 
   private constForm(): any {
@@ -30,13 +37,5 @@ export class LoginFormComponent implements OnInit {
       ]),
       rememberMe: new FormControl(false),
     });
-  }
-
-  login(event: Event): any {
-    event.preventDefault();
-    if (this.loginForm.valid) {
-      const value = this.loginForm.value;
-      console.log(`OK ${value.email} - ${value.rememberMe}`);
-    }
   }
 }
