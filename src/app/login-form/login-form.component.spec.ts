@@ -3,12 +3,15 @@ import {
   ComponentFixture,
   fakeAsync,
   TestBed,
-  tick,
 } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '../material/material.module';
 
 import { LoginFormComponent } from './login-form.component';
 
@@ -24,7 +27,11 @@ describe('LoginFormComponent', () => {
       imports: [
         ReactiveFormsModule,
         FormsModule,
-        MaterialModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        MatSlideToggleModule,
         BrowserAnimationsModule,
       ],
       declarations: [LoginFormComponent],
