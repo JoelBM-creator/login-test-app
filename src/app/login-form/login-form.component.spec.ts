@@ -18,9 +18,8 @@ import { LoginFormComponent } from './login-form.component';
 describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
   let fixture: ComponentFixture<LoginFormComponent>;
-  let buttonAcceder: DebugElement;
-  let emailEl: DebugElement;
-  let contrasenaEl: DebugElement;
+  let de: DebugElement;
+  let el: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -35,34 +34,73 @@ describe('LoginFormComponent', () => {
         BrowserAnimationsModule,
       ],
       declarations: [LoginFormComponent],
-    }).compileComponents();
+    }).compileComponents().then(() => {
+      fixture = TestBed.createComponent(LoginFormComponent);
+      component = fixture.componentInstance;
+      component.ngOnInit();
+      fixture.detectChanges();
+      de = fixture.debugElement.query(By.css('form'));
+      el = de.nativeElement;
+    });
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginFormComponent);
     component = fixture.componentInstance;
-    emailEl = fixture.debugElement.query(By.css('input[type=email]'));
-    contrasenaEl = fixture.debugElement.query(By.css('input[type=password]'));
+    component.ngOnInit();
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Entering invalid email and password to function Login', fakeAsync(() => {
+  it('Entering no data to function Login', fakeAsync(() => {
     spyOn(component, 'login').and.callThrough();
     component.login(new Event(''));
-    expect(component.login).toHaveBeenCalled;
     expect(component.loginForm.valid).toBeFalsy();
   }));
 
   it('Entering valid email and password to function Login', fakeAsync(() => {
-    component.loginForm.controls['email'].setValue('test@test.com');
-    component.loginForm.controls['contrasena'].setValue('123456789');
+    component.loginForm.controls.email.setValue('test@test.com');
+    component.loginForm.controls.contrasena.setValue('123456789');
     expect(component.loginForm.valid).toBeTruthy();
     spyOn(component, 'login').and.callThrough();
     component.login(new Event(''));
-    expect(component.login).toHaveBeenCalled;
   }));
+
+  it('Email field null validity', () => {
+    const email = component.loginForm.controls.email;
+    expect(email.valid).toBeFalsy();
+    email.setValue('');
+    expect(email.hasError('required')).toBeTruthy();
+  });
+
+  it('Email field email-type validity', () => {
+    const email = component.loginForm.controls.email;
+    expect(email.valid).toBeFalsy();
+    email.setValue('example.com');
+    expect(email.hasError('email')).toBeTruthy();
+  });
+
+  it('Password field null validity', () => {
+    const password = component.loginForm.controls.contrasena;
+    expect(password.valid).toBeFalsy();
+    password.setValue('');
+    expect(password.hasError('required')).toBeTruthy();
+  });
+
+  it('Password field minlength validity', () => {
+    const password = component.loginForm.controls.contrasena;
+    expect(password.valid).toBeFalsy();
+    password.setValue('123');
+    expect(password.hasError('minlength')).toBeTruthy();
+  });
+
+  it('Should call login', () => {
+    spyOn(component, 'login').and.callThrough();
+    el = fixture.debugElement.query(By.css('button')).nativeElement;
+    el.click();
+    expect(component.login).toHaveBeenCalledTimes(1);
+  });
 });
