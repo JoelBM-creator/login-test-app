@@ -8,7 +8,7 @@
         </div>
         <h3 class="login-header mb-5 mt-3">Prueba técnica</h3>
         <form [formGroup]="loginForm" class="login-form align-items-center" fxLayout="column"
-          (ngSubmit)="login($event)">
+          (ngSubmit)="login($event)" *ngIf="loginForm">
           <mat-form-field appearance="standard">
             <mat-label>Email</mat-label>
             <mat-icon matPrefix>account_circle</mat-icon>
